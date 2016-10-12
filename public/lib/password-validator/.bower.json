@@ -1,0 +1,25 @@
+{
+  "name": "password-validator",
+  "version": "0.1.2",
+  "homepage": "https://github.com/alejandromangione/password-validator",
+  "authors": [
+    "Alejandro Mangione <alejandro.ferraiolo@brasilct.com>"
+  ],
+  "main": "dist/passwordValidator.js",
+  "keywords": [
+    "validator",
+    "validation",
+    "password"
+  ],
+  "license": "MIT",
+  "_release": "0.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.2",
+    "commit": "1116c04171095433c4bf451e650399535b0d1b4c"
+  },
+  "_source": "https://github.com/alejandromangione/password-validator.git",
+  "_target": "^0.1.2",
+  "_originalSource": "password-validator",
+  "_direct": true
+}

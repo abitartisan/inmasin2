@@ -1,0 +1,35 @@
+<section>
+  <div class="page-header">
+    <h1>Oportunidades</h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="property in vm.properties"
+       data-ui-sref="properties.view({ propertyId: property._id })"
+       class="list-group-item">
+       <img src={{property.image1}} style="width:304px;height:228px;"> <br>
+       Folio de la propiedad: {{property.folio}} <br>
+       Metros totales: {{property.metros_totales}}    <br>
+       Metros disponibles: {{property.metros_disponibles}} <br>
+       Dirección: {{property.address}} <br>
+       Porcentaje de inversión: <br>
+       <div class="progress">
+         <div class="progress-bar" role="progressbar" aria-valuenow="{{100 -(property.metros_disponibles * 100 / property.metros_totales) | number:0}}"
+         aria-valuemin="0" aria-valuemax="100" style="width:{{100 -(property.metros_disponibles * 100 / property.metros_totales) | number:0}}%">
+           {{100 -(property.metros_disponibles * 100 / property.metros_totales) | number:0}}%
+         </div>
+       </div>
+      <!-- <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="property.created | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="property.user" data-ng-bind="property.user.displayName"></span>
+        <span data-ng-if="!property.user">Deleted User</span>
+      </small> -->
+      <h4 class="list-group-item-heading" data-ng-bind="property.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="vm.properties.$resolved && !vm.properties.length">
+    No hay oportunidades ofertadas en este momento
+    <!-- vm.properties <a data-ui-sref="properties.create">create one</a>? -->
+  </div>
+</section>

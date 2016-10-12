@@ -1,0 +1,71 @@
+<section class="row" ng-controller="SocialAccountsController">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <h3 class="col-md-12 text-center">Mis inversiones</h3>
+  <div class="col-md-12 text-center">
+
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <td>
+          <a href="#" ng-click="sortType = 'fecha' ; sortReverse = !sortReverse">
+            Fecha de inversión
+            <span ng-show="sortType == 'fecha' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'fecha' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'monto'; sortReverse = !sortReverse">
+            Monto
+            <span ng-show="sortType == 'monto' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'monto' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'meses' ; sortReverse = !sortReverse">
+            Meses
+            <span ng-show="sortType == 'meses' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'meses' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'ganancia' ; sortReverse = !sortReverse">
+            Ganancia
+            <span ng-show="sortType == 'ganancia' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ganancia' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'fechaRetorno' ; sortReverse = !sortReverse">
+            Fecha de retorno
+            <span ng-show="sortType == 'fechaRetorno' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'fechaRetorno' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'utilidad' ; sortReverse = !sortReverse">
+            Utilidad
+            <span ng-show="sortType == 'utilidad' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'utilidad' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'utilidad' ; sortReverse = !sortReverse">
+            Estado
+          </a>
+        </td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr ng-repeat="inversion in user.inversiones | orderBy:sortType:sortReverse | filter:busqueda">
+        <td>{{ inversion.fecha }}</td>
+        <td>{{ inversion.monto | currency}}</td>
+        <td>{{ inversion.meses }}</td>
+        <td>{{ inversion.ganancia }}%</td>
+        <td>{{ inversion.fechaRetorno }}</td>
+        <td>{{ inversion.utilidad | currency }}</td>
+        <td>{{ inversion.estado }}</td>
+      </tr>
+      </tbody>
+    </table>
+</section>

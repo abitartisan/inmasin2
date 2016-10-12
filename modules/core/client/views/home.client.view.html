@@ -1,0 +1,172 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+<section>
+
+
+
+
+
+
+
+<div  ng-hide="vm.authentication.user">
+
+
+  <div class="container marketing">
+
+    <h2 class="text-center">Acerca de IN+IN</h2>
+      <p class="text-center">Es una plataforma en linea que le permite Invertir en Inmuebles
+         adquiriendo metros cuadrados, con poco dinero y de manera segura.</p>
+      <p class="text-center">Plataforma que agrupa Inversionistas Privados a los
+         que les ofrece asesoría en la Compra, Venta e Inversión en Bienes Raíces y que les
+          procura rendimiento al capital emprendedor a traves de los inmueble o proyectos
+           inmobiliarios ofertados, aplicando un mecanismo innovador en el negocio inmobiliario.</p>
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img class="img-circle" src="http://placehold.it/140x140">
+        <h2>Objetivo</h2>
+        <p>Asesorar a los inversionistas en la compra, venta e inversión en bienes raíces.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img class="img-circle" src="http://placehold.it/140x140">
+        <h2>Misión</h2>
+        <p>Asesorar a los Inversionistas Privados en las diversas Oportunidades de Inversion
+           que se les presentan a través de la plataforma para que realicen la Compra, Venta
+            o Inversión en Bienes Raíces.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img class="img-circle" src="http://placehold.it/140x140">
+        <h2>Visión</h2>
+        <p>Ser la mejor plataforma en línea que agrupe al mayor número de inversionistas privados
+           y les permita obtener grandes rendimientos a traves de los inmuebles o proyectos
+            inmobiliarios ofertados y obtener la independencia financiera que todo inversionista busca.</p>
+      </div>
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+      <img class="featurette-image img-circle pull-right" src="http://placehold.it/512">
+      <h2 class="featurette-heading">Invierte con poco dinero. <span class="text-muted">It'll blow your mind.</span></h2>
+      <p class="lead">In simple terms, a responsive web design figures out what resolution of device it's being served on. Flexible grids then size correctly to fit the screen.</p>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+      <img class="featurette-image img-circle pull-left" src="http://placehold.it/512">
+      <h2 class="featurette-heading">Invierte con confianza. <span class="text-muted">Lightweight.</span></h2>
+      <p class="lead">The new Bootstrap 3 promises to be a smaller build. The separate Bootstrap base and responsive.css files have now been merged into one. There is no more fixed grid, only fluid.</p>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+      <img class="featurette-image img-circle pull-right" src="http://placehold.it/512">
+      <h2 class="featurette-heading">Obten un buen rendimiento. <span class="text-muted">Flatness.</span></h2>
+      <p class="lead">A big design trend for 2013 is "flat" design. Gone are the days of excessive gradients and shadows. Designers are producing cleaner flat designs, and Bootstrap 3 takes advantage of this minimalist trend.</p>
+    </div>
+
+
+</div>
+</section>
+<section class="row" ng-show="vm.authentication.user">
+
+  <h2 class="col-md-12 text-center">Resumen de tus movimientos</h2>
+  <h3 class="col-md-12 text-left">Tus propiedades en la plataforma</h3>
+
+  <div class="col-md-12">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <td>
+          <a href="#" ng-click="sortType = 'fecha' ; sortReverse = !sortReverse">
+            Folio de la propiedad
+            <span ng-show="sortType == 'fecha' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'fecha' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'monto'; sortReverse = !sortReverse">
+            Metros totales
+            <span ng-show="sortType == 'monto' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'monto' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'meses' ; sortReverse = !sortReverse">
+            Metros disponibles
+            <span ng-show="sortType == 'meses' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'meses' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'ganancia' ; sortReverse = !sortReverse">
+            Precio por metro
+            <span ng-show="sortType == 'ganancia' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'ganancia' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'fechaRetorno' ; sortReverse = !sortReverse">
+            Dirección
+            <span ng-show="sortType == 'fechaRetorno' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'fechaRetorno' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr ng-repeat="inversion in user.inversiones | orderBy:sortType:sortReverse | filter:busqueda">
+        <td>{{ inversion.fecha }}</td>
+        <td>{{ inversion.monto | currency}}</td>
+        <td>{{ inversion.meses }}</td>
+        <td>{{ inversion.ganancia }}%</td>
+        <td>{{ inversion.fechaRetorno }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h3 class="col-md-12 text-left">Tus inversiones</h3>
+    <div class="col-md-12 text-center">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <td>
+            <a href="#" ng-click="sortType = 'fecha' ; sortReverse = !sortReverse">
+              Fecha de inversión
+              <span ng-show="sortType == 'fecha' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'fecha' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="sortType = 'monto'; sortReverse = !sortReverse">
+              Metros
+              <span ng-show="sortType == 'monto' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'monto' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="sortType = 'meses' ; sortReverse = !sortReverse">
+              Folio de la propiedad
+              <span ng-show="sortType == 'meses' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'meses' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="inversion in vm.authentication.user.inversiones"> <!-- vm.authentication.user.inversiones -->
+          <td>{{ inversion.inversionDate }}</td>
+          <td>{{ inversion.meters }}</td>
+          <td><a href="{{inversion.url}}">{{ inversion.folio }}</a></td>
+        </tr>
+        </tbody>
+      </table>
+</section>
