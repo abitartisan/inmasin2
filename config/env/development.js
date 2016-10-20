@@ -4,10 +4,10 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-dev',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://<inmasin>:<da0cb7a4ffeefk17>@ds021844-a0.mlab.com:21844,ds021844-a1.mlab.com:21844/heroku_3l2f489d?replicaSet=rs-ds021844',
     options: {
-      user: '',
-      pass: ''
+      user: 'inmasin',
+      pass: 'da0cb7a4ffeefk17'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
